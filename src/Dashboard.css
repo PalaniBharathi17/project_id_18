@@ -1,0 +1,108 @@
+body {
+    background-color: #f0f8ff;
+    /* Light blue shade */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    /* Background color for the form container */
+    border-radius: 8px;
+    /* Slightly rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for a modern look */
+}
+
+.dashboard-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    /* Space for buttons */
+}
+
+.form-group {
+    flex: 1 1 45%;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    /* Space out the buttons evenly */
+    margin-top: 20px;
+    /* Space above the button container */
+}
+
+.button-container button {
+    padding: 6px 12px;
+    /* Smaller padding for the buttons */
+    font-size: 12px;
+    /* Smaller font size */
+    border: none;
+    border-radius: 4px;
+    /* Consistent border radius */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    /* Smooth transition for hover effect */
+}
+
+.button-container button:nth-child(1) {
+    background-color: #28a745;
+    /* Green color for view tasks button */
+    color: white;
+    margin-right: 10px;
+    /* Spacing between the View Tasks and Submit button */
+}
+
+.button-container button:nth-child(2) {
+    background-color: #007bff;
+    /* Blue color for submit button */
+    color: white;
+}
+
+.button-container button:nth-child(3) {
+    background-color: #dc3545;
+    /* Red color for logout button */
+    color: white;
+    margin-left: 10px;
+    /* Spacing between the Submit and Logout button */
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+    /* Darker color for hover effect */
+    transform: scale(1.03);
+    /* Slightly increase button size on hover */
+}
+
+.button-container button:nth-child(1):hover {
+    background-color: #218838;
+    /* Darker green for view tasks button hover */
+}
+
+.button-container button:nth-child(3):hover {
+    background-color: #c82333;
+    /* Darker red for logout button hover */
+}
