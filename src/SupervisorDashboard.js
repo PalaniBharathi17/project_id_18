@@ -13,7 +13,7 @@ const SupervisorDashboard = () => {
     duration: '',
     status: ''
   });
-
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -22,10 +22,22 @@ const SupervisorDashboard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    const updatedTasks = [...storedTasks, formData];
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks)); // Store tasks in localStorage
-    navigate('/tasks-list'); // Redirect to tasks list page
+
+    // Client-side validation
+    if (!formData.taskId || !formData.date || !formData.session || !formData.location || !formData.numberOfWorkers || !formData.nameOfWorkers || !formData.duration || !formData.status) {
+      setMessage('Please fill in all fields.');
+      return;
+    }
+
+    try {
+      const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+      const updatedTasks = [...storedTasks, formData];
+      localStorage.setItem('tasks', JSON.stringify(updatedTasks)); // Store tasks in localStorage
+      navigate('/tasks-list'); // Redirect to tasks list page
+    } catch (error) {
+      setMessage('An error occurred while saving the task. Please try again.');
+      console.error(error);
+    }
   };
 
   const handleLogout = () => {
@@ -38,7 +50,7 @@ const SupervisorDashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h1>SuperVisor's Dashboard</h1>
+      <h1>Supervisor's Dashboard</h1>
       <form className="dashboard-form" onSubmit={handleSubmit}>
         {/* Form fields */}
         <div className="form-group">
@@ -145,6 +157,7 @@ const SupervisorDashboard = () => {
             <option value="COMPLETED">COMPLETED</option>
           </select>
         </div>
+        {message && <p className="error-message">{message}</p>}
         <div className="button-container">
           <button type="button" onClick={handleViewTasks} className="button-small">View Tasks List</button>
           <button type="submit" className="button-small">Submit</button>

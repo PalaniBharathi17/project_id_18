@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ViewTaskList.css'; // Add CSS file if needed
+import './ViewTaskList.css'; // Ensure this file contains your styling
 
 const ViewTasksList = () => {
   const [tasks, setTasks] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    setTasks(storedTasks);
+    try {
+      const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+      setTasks(storedTasks);
+    } catch (error) {
+      console.error('Failed to fetch tasks from localStorage:', error);
+    }
   }, []);
 
   const handleClearList = () => {
-    setTasks([]);
-    localStorage.removeItem('tasks'); // Clear tasks from localStorage
+    const confirmClear = window.confirm('Are you sure you want to clear the tasks list?');
+    if (confirmClear) {
+      setTasks([]);
+      localStorage.removeItem('tasks'); // Clear tasks from localStorage
+    }
   };
 
   const handleBackToDashboard = () => {

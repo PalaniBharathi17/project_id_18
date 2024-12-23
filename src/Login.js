@@ -9,6 +9,13 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = () => {
+        // Client-side validation
+        if (!username || !password) {
+            alert('Please enter both username and password.');
+            return;
+        }
+
+        // Example login logic
         if (role === 'supervisor') {
             if (username === '2023UCD5001' && password === '17') {
                 navigate('/dashboard');
@@ -34,7 +41,7 @@ const Login = () => {
         <div className="login-container">
             <div className="login-box">
                 <img
-                    src="https://bip.bitsathy.ac.in/images/login-logo-dark-mode.png"
+                    src="https://gyaanarth.com/wp-content/uploads/2022/08/BITLOGO.jpg"
                     alt="Campus Maintenance"
                     className="login-image"
                 />

@@ -8,9 +8,10 @@ import ViewTaskList from './ViewTaskList';
 const App = () => {
   return (
     <Routes>
+      <Route path="/" element={<Login />} /> {/* Add a route for the root path */}
       <Route path="/dashboard" element={<SupervisorDashboard />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/admin" element={<AdminPage />} /> {/* Add the route for AdminPage */}
+      <Route path="/admin" element={<AdminPage />} />
       <Route path="/tasks-list" element={<ViewTaskList />} />
       {/* Add more routes if needed */}
     </Routes>

@@ -1,6 +1,7 @@
 body {
     background-color: #f0f8ff;
     /* Light blue shade */
+
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -10,7 +11,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     background-color: white;
-    /* Background color for the form container */
+    
     border-radius: 8px;
     /* Slightly rounded corners */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
