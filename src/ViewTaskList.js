@@ -6,6 +6,7 @@ const ViewTasksList = () => {
   const [tasks, setTasks] = useState([]);
   const navigate = useNavigate();
 
+  // Fetch tasks from localStorage when the component mounts
   useEffect(() => {
     try {
       const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -15,6 +16,7 @@ const ViewTasksList = () => {
     }
   }, []);
 
+  // Handle clearing the task list
   const handleClearList = () => {
     const confirmClear = window.confirm('Are you sure you want to clear the tasks list?');
     if (confirmClear) {
@@ -23,8 +25,9 @@ const ViewTasksList = () => {
     }
   };
 
+  // Handle navigation back to the dashboard
   const handleBackToDashboard = () => {
-    navigate('/dashboard');
+    navigate('/dashboard'); // Navigate to the dashboard route
   };
 
   return (
@@ -44,6 +47,7 @@ const ViewTasksList = () => {
               <strong>Name of Workers:</strong> {task.nameOfWorkers} <br />
               <strong>Duration:</strong> {task.duration} <br />
               <strong>Status:</strong> {task.status} <br />
+              <strong>Remarks:</strong> {task.remarks} <br />
             </li>
           ))
         ) : (

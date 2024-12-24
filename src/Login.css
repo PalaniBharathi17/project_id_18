@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #0073e6;
+    --primary-color: #000000;
     --primary-hover: #005bb5;
     --background-color: #f7f9fc;
     --text-color: #333;
@@ -122,6 +122,12 @@ select {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+}
+h2.login-title {
+    font-size: 24px;
+    color: #000000;
+    /* Set text color to black */
+    margin-bottom: 30px;
 }
 
 /* Responsive Design */
