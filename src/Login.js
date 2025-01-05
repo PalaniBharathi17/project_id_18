@@ -45,7 +45,7 @@ const Login = () => {
                     alt="Campus Maintenance"
                     className="login-image"
                 />
-                <h2 className="login-title">Campus Maintenance</h2>
+                <h2 className="login-title">Campus Maintenance Portal</h2>
                 <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
                     <div className="form-group">
                         <label htmlFor="username">Username</label>

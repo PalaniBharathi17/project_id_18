@@ -6,7 +6,6 @@ const ViewTasksList = () => {
   const [tasks, setTasks] = useState([]);
   const navigate = useNavigate();
 
-  // Fetch tasks from localStorage when the component mounts
   useEffect(() => {
     try {
       const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -16,7 +15,6 @@ const ViewTasksList = () => {
     }
   }, []);
 
-  // Handle clearing the task list
   const handleClearList = () => {
     const confirmClear = window.confirm('Are you sure you want to clear the tasks list?');
     if (confirmClear) {
@@ -25,9 +23,14 @@ const ViewTasksList = () => {
     }
   };
 
-  // Handle navigation back to the dashboard
   const handleBackToDashboard = () => {
-    navigate('/dashboard'); // Navigate to the dashboard route
+    navigate('/dashboard');
+  };
+
+  const handleLogout = () => {
+    // Clear any authentication token or user data if required
+    localStorage.removeItem('authToken');
+    navigate('/login'); // Adjust the login path as needed
   };
 
   return (
@@ -35,6 +38,7 @@ const ViewTasksList = () => {
       <h1>Tasks List</h1>
       <button onClick={handleBackToDashboard} className="button-small">Back to Dashboard</button>
       <button onClick={handleClearList} className="button-small">Clear List</button>
+      <button onClick={handleLogout} className="button-small">Logout</button>
       <ul className="tasks-list">
         {tasks.length > 0 ? (
           tasks.map((task, index) => (
@@ -47,7 +51,6 @@ const ViewTasksList = () => {
               <strong>Name of Workers:</strong> {task.nameOfWorkers} <br />
               <strong>Duration:</strong> {task.duration} <br />
               <strong>Status:</strong> {task.status} <br />
-              <strong>Remarks:</strong> {task.remarks} <br />
             </li>
           ))
         ) : (

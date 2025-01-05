@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AdminPage.css'; 
+import './AdminPage.css';
 
 const AdminPage = () => {
     const [taskId, setTaskId] = useState('');
@@ -9,15 +9,32 @@ const AdminPage = () => {
     const navigate = useNavigate();
 
     const handleSearch = async () => {
-        // Simulate fetching task details from a server
-        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-        const task = tasks.find(task => task.taskId === taskId);
-        if (task) {
-            setTaskDetails(task);
-            setMessage('');
-        } else {
+        try {
+            // Sending an API request to fetch task details from the backend
+            const response = await fetch(`http://localhost:8080/api/tasks/${taskId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            // Handling response
+            if (response.ok) {
+                const data = await response.json();
+                if (data) {
+                    setTaskDetails(data);
+                    setMessage('');
+                } else {
+                    setTaskDetails(null);
+                    setMessage('Task not found.');
+                }
+            } else {
+                setMessage('Failed to fetch task details.');
+                setTaskDetails(null);
+            }
+        } catch (error) {
+            setMessage('Error fetching task details.');
             setTaskDetails(null);
-            setMessage('Task not found.');
         }
     };
 
