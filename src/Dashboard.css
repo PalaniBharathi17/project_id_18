@@ -1,217 +1,202 @@
-/* Dashboard.css */
-
-.dashboard-container {
-    display: flex;
-    height: 100vh;
-    font-family: Arial, sans-serif;
+/* General Reset */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F8FAFC;
+    /* Soft off-white */
+    color: #374151;
+    /* Neutral gray for text */
 }
 
+/* Sidebar */
 .sidebar {
     width: 250px;
-    background-color: #1a1a1a;
-    color: #fff;
+    height: 100vh;
+    background-color: #1E293B;
+    /* Dark navy */
+    color: #E5E7EB;
+    /* Light gray text */
     padding: 20px;
     position: fixed;
-    top: 0;
     left: 0;
-    height: 100%;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.sidebar .profile {
-    margin-bottom: 30px;
+    top: 0;
+    overflow-y: auto;
 }
 
 .sidebar h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #F8FAFC;
+    /* White */
 }
 
-.sidebar nav ul {
+.sidebar ul {
     list-style-type: none;
     padding: 0;
 }
 
-.sidebar nav ul li {
-    padding: 10px 15px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.sidebar nav ul li:hover {
-    background-color: #333;
-}
-
-.main-content {
-    margin-left: 250px;
-    padding: 40px;
-    background-color: #f2f2f2;
-    height: 100%;
-    width: calc(100% - 250px);
-    /* Adjusted to take remaining space */
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.task-form {
-    max-width: 100%;
-    /* Allow form to take up full width of main-content */
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 30px;
+.sidebar ul li {
+    padding: 12px 15px;
+    margin: 8px 0;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
 }
 
-.add-task-button {
-    background-color: #4CAF50;
+.sidebar ul li a {
+    text-decoration: none;
+    color: #E5E7EB;
+    font-size: 16px;
+    display: block;
+}
+
+.sidebar ul li:hover {
+    background-color: #3B82F6;
+    /* Soft blue hover */
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 270px;
+    padding: 30px;
+}
+
+.main-content h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #111827;
+    /* Deep black for sharp headings */
+}
+
+.card {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+    background-color: #2563EB;
+    /* Elegant blue */
     color: white;
+    padding: 10px 15px;
     border: none;
-    padding: 12px 24px;
-    font-size: 1.2rem;
+    border-radius: 6px;
     cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
 }
 
-.add-task-button:hover {
-    background-color: #45a049;
+button:hover {
+    background-color: #1D4ED8;
+    /* Slightly darker blue */
 }
 
-.task-form-container .form-group {
-    margin-bottom: 20px;
+/* Header */
+.header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #ddd;
 }
 
-.task-form-container label {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+.header-details {
+    display: flex;
+    gap: 20px;
+    /* Adds spacing between date and user role */
+    align-items: center;
+}
+
+.date-container,
+.user-role {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* Space between icon and text */
+    font-weight: bold;
     color: #333;
 }
 
-.task-form-container input,
-.task-form-container select,
-.task-form-container textarea {
-    padding: 12px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
+.date-container i,
+.user-role i {
+    color: #007bff;
+    font-size: 18px;
 }
 
-.task-form-container textarea {
-    min-height: 100px;
-}
-
-.submit-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #45a049;
-}
-
-.message {
-    color: #d9534f;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    text-align: center;
-}
-
-/* Dashboard.css */
-
-/* Error Highlighting */
-.error input,
-.error select,
-.error textarea {
-    border: 2px solid red;
-    background-color: #f8d7da;
-}
-
-.submit-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-/* Add some styling for the buttons */
-.submit-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover:enabled {
-    background-color: #45a049;
-}
-
-.message {
-    color: #d9534f;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    text-align: center;
-}
-.sidebar {
-    width: 250px;
-    background-color: #007BFF;
-    /* Changed to a blue color */
-    color: #fff;
+/* Task Summary */
+.task-summary {
+    display: flex;
+    justify-content: space-around;
+    background: #f8f9fa;
     padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
 }
-/* Add spacing between navigation links */
-.sidebar nav ul li {
-    padding: 15px 15px;
-    /* Increase padding for more space */
-    font-size: 1.1rem;
+
+.task-summary .summary-box {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    width: 200px;
+}
+
+.task-summary .summary-box span {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 5px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* User Info */
+.user-info {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+}
+
+/* Improve Layout Spacing */
+.main-content {
+    padding: 20px;
+}
+
+/* Button Styling for Better UI */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    margin-bottom: 10px;
-    /* Add space between list items */
+    font-size: 14px;
 }
 
-/* Hover effect for all navigation links */
-.sidebar nav ul li:hover {
-    background-color: #333;
-}
-
-/* Special styling for Logout button */
-.sidebar nav ul li.logout {
-    color: #fff;
-    background-color: #007BFF;
-    /* Match sidebar background by default */
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.sidebar nav ul li.logout:hover {
-    background-color: #FF4D4D;
-    /* Slightly red hover effect */
-    transform: scale(1.05);
-    /* Add slight zoom effect */
+button:hover {
+    background-color: #0056b3;
 }
